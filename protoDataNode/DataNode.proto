@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "https://github.com/Sistemas-Distribuidos-2022-2/Tarea2-Grupo08/tree/main/Proto";
+
+message reqSaveData{
+    string data = 1;
+}
+
+message resSaveData{
+}
+
+message reqData{
+  string ID = 1;
+}
+
+message resData{
+  string data = 1;
+}
+
+message reqShutDown{
+}
+
+message resShutDown{
+  string data = 1;
+}
+
+service DataNodeService {
+    rpc Node1 (reqSaveData) returns (resSaveData);
+    rpc Node2 (reqSaveData) returns (resSaveData);
+    rpc Node3 (reqSaveData) returns (resSaveData);
+    rpc Getid (reqData) returns (resData);
+    rpc Getid2 (reqData) returns (resData);
+    rpc Getid3 (reqData) returns (resData);
+    rpc ShutDown (reqShutDown) returns (resShutDown);
+}

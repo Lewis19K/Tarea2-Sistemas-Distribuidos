@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "https://github.com/Sistemas-Distribuidos-2022-2/Tarea2-Grupo08/tree/main/Proto";
+
+message reqUpload{
+    string data = 1;
+}
+
+message resUpload{
+}
+
+message reqDownload{
+    string tipo = 1;
+}
+
+message resDownload{
+    repeated string descarga = 1;
+}
+
+message reqClose{
+}
+
+message resClose{
+    string data = 1;
+}
+
+service MessageService {
+    rpc Upload (reqUpload) returns (resUpload);
+    rpc Download (reqDownload) returns (resDownload);
+    rpc Close (reqClose) returns (resClose);
+}
